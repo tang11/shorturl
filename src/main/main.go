@@ -1,9 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"crypto/sha256"
 )
 
-func main() {
-	fmt.Printf("Hello Go URL Shortener !🚀")
+func sha256Of(input string) []byte {
+	algorithm := sha256.New()
+	algorithm.Write([]byte(input))
+	return algorithm.Sum(nil)
 }
